@@ -1,0 +1,43 @@
+.task {
+  border: 2px solid black;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 8px solid black;
+}
+
+.task-name {
+  font-size: 32px;
+
+  background-color: transparent;
+  width: 100%;
+}
+
+.task-name-container {
+  margin-bottom: 16px;
+}
+
+.task-name-container > p {
+  display: none;
+}
+
+.task-name-container:hover > p {
+  display: block;
+}
+
+.task-options > button {
+  margin-right: 16px;
+}
+
+.ongoing {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+.done {
+  background-color: rgba(173, 255, 47, 0.1);
+}
+
+@media screen and (max-width: 640px) {
+  .task-name {
+    font-size: 16px;
+  }
+}

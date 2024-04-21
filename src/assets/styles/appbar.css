@@ -1,0 +1,50 @@
+header {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  flex-direction: row-reverse;
+}
+
+.user-greeting-area {
+  display: flex;
+  align-items: baseline;
+}
+
+#textbox-username {
+  margin-left: 4px;
+  font-size: 32px;
+  font-weight: 600;
+  align-self: baseline;
+}
+
+#site-logo-header {
+  height: 48px;
+}
+
+#textbox-add-task {
+  font-size: 48px;
+  font-weight: 400;
+  height: 60px;
+}
+
+#form-add-task {
+  display: flex;
+  flex-direction: column;
+}
+
+#button-add-task {
+  margin-top: 16px;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 640px) {
+  header {
+    display: block;
+  }
+
+  #textbox-add-task {
+    font-size: 24px;
+  }
+}
