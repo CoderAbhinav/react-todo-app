@@ -67,6 +67,11 @@ function Task(props) {
 
   return (
     <div className={`task ${props.task.status}`}>
+      <p className={`status tag-${props.task.status}`}>
+        {
+          props.task.status === "not-done" ? "#TODO" : props.task.status === "ongoing" ? "#ONGOING" : "#DONE"
+        }
+      </p>
       <div className="task-name-container">
         <input
           className="task-name"
@@ -82,13 +87,13 @@ function Task(props) {
       <p>{errorValue}</p>
       <div className="task-options">
         {props.task.status === 'not-done' ? (
-          <button onClick={handleOnStatusChangeToOngoing}>Ongoing</button>
+          <button onClick={handleOnStatusChangeToOngoing}>🏁 Ongoing</button>
         ) : props.task.status === 'ongoing' ? (
-          <button onClick={handleOnStatusChangeToDone}>Done</button>
+          <button onClick={handleOnStatusChangeToDone}>✅ Done</button>
         ) : (
-          <button onClick={handleOnStatusChangeToReset}>Reset</button>
+          <button onClick={handleOnStatusChangeToReset}>🆑 Reset</button>
         )}
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete}>🗑️ Delete</button>
       </div>
     </div>
   );
