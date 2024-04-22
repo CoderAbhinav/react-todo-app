@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import TaskListContext from './TaskListContext';
 
 function TaskListContextProvider({ children }) {
+  const retriveTaskListFromLocalStorage = () => {
+    const taskListFromLocalStorage = localStorage.getItem('tasklist');
+    console.log('TaskList:' + taskListFromLocalStorage);
+    return JSON.parse(taskListFromLocalStorage) || [];
+  };
 
-  const retriveTaskListFromLocalStorage = ( ) => {
-    let taskListFromLocalStorage = localStorage.getItem( 'tasklist' );
-    console.log( 'TaskList:' +  taskListFromLocalStorage );
-    return JSON.parse( taskListFromLocalStorage ) || [];
-  }
-
-  const [taskList, setTaskList] = useState( retriveTaskListFromLocalStorage() );
+  const [taskList, setTaskList] = useState(retriveTaskListFromLocalStorage());
 
   useEffect(() => {
-    console.log( 'Storing In Local Storage: ' + JSON.stringify( taskList ) );
-    localStorage.setItem( 'tasklist', JSON.stringify( taskList ) );
+    console.log('Storing In Local Storage: ' + JSON.stringify(taskList));
+    localStorage.setItem('tasklist', JSON.stringify(taskList));
   }, [taskList]);
 
   return (

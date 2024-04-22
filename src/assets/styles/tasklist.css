@@ -1,16 +1,15 @@
 .active-filter {
-    background-color: black;
+  background-color: black;
 }
 
 #tasklist-filter-buttons {
-    margin-bottom: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-  
+
 #tasklist-filter-buttons > button {
-    margin-right: 8px;
-    padding: 0 8px;
+  margin-right: 8px;
+  padding: 0 8px;
 }
-  

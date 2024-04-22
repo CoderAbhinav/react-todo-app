@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import '../assets/styles/task.css';
 import TaskListContext from '../context/TaskListContext';
 import PropTypes from 'prop-types';
+import AutoResizeTextArea from './AutoResizeTextArea';
 
 function Task(props) {
   Task.propTypes = {
@@ -68,16 +69,18 @@ function Task(props) {
   return (
     <div className={`task ${props.task.status}`}>
       <p className={`status tag-${props.task.status}`}>
-        {
-          props.task.status === "not-done" ? "#TODO" : props.task.status === "ongoing" ? "#ONGOING" : "#DONE"
-        }
+        {props.task.status === 'not-done'
+          ? '#TODO'
+          : props.task.status === 'ongoing'
+            ? '#ONGOING'
+            : '#DONE'}
       </p>
       <div className="task-name-container">
-        <input
+        <AutoResizeTextArea
           className="task-name"
           type="text"
           placeholder="Write down your task..."
-          value={props.task.name}
+          currentVal={props.task.name}
           onChange={handleOnTaskNameChange}
           maxLength={121}
           autoComplete="off"
@@ -87,9 +90,9 @@ function Task(props) {
       <p>{errorValue}</p>
       <div className="task-options">
         {props.task.status === 'not-done' ? (
-          <button onClick={handleOnStatusChangeToOngoing}>🏁 Ongoing</button>
+          <button onClick={handleOnStatusChangeToOngoing}>🏁 Mark As Ongoing</button>
         ) : props.task.status === 'ongoing' ? (
-          <button onClick={handleOnStatusChangeToDone}>✅ Done</button>
+          <button onClick={handleOnStatusChangeToDone}>✅ Mark As Done</button>
         ) : (
           <button onClick={handleOnStatusChangeToReset}>🆑 Reset</button>
         )}

@@ -20,6 +20,8 @@ code {
 input[type='text'] {
   border: none;
   outline: none;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 textarea {
@@ -28,6 +30,7 @@ textarea {
   resize: none;
   width: 100%;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
 button {

@@ -36,7 +36,6 @@
   background-color: rgba(173, 255, 47, 0.1);
 }
 
-
 .status {
   background-color: black;
   display: inline-block;
@@ -53,7 +52,6 @@
 .tag-done {
   background-color: green;
 }
-
 
 @media screen and (max-width: 640px) {
   .task-name {

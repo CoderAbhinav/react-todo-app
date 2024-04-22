@@ -1,15 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../assets/styles/appbar.css';
 import SiteLogo from '../assets/images/site-logo.png';
 import TaskListContext from '../context/TaskListContext';
 import { v4 as uuidV4 } from 'uuid';
+import AutoResizeTextArea from './AutoResizeTextArea';
 
 function AppBar(props) {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState(localStorage.getItem('userName'));
   const [taskName, setTaskName] = useState('');
   const [errorValue, setErrorValue] = useState('');
 
   const { taskList, setTaskList } = useContext(TaskListContext);
+
+  useEffect(() => {
+    localStorage.setItem('userName', userName);
+  }, [userName]);
 
   const handleOnUserNameChange = (e) => {
     e.preventDefault();
@@ -29,8 +34,9 @@ function AppBar(props) {
   const handleOnTaskNameChange = (e) => {
     e.preventDefault();
     const validationResults = validateTaskName(e.target.value);
-
-    setTaskName(e.target.value);
+    if (validationResults === true) {
+      setTaskName(e.target.value);
+    }
     setErrorValue(validationResults);
   };
 
@@ -58,11 +64,11 @@ function AppBar(props) {
         </div>
       </header>
       <div id="form-add-task">
-        <input
+        <AutoResizeTextArea
           id="textbox-add-task"
           type="text"
           placeholder="Write down your task..."
-          value={taskName}
+          currentVal={taskName}
           onChange={handleOnTaskNameChange}
           maxLength={121}
           autoComplete="off"
