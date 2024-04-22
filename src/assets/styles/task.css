@@ -1,3 +1,8 @@
+/**
+ * Styles for individual tasks.
+ */
+
+/* Task container */
 .task {
   border: 2px solid black;
   padding: 16px;
@@ -5,17 +10,19 @@
   border-left: 8px solid black;
 }
 
+/* Task name input */
 .task-name {
   font-size: 32px;
-
   background-color: transparent;
   width: 100%;
 }
 
+/* Container for task name */
 .task-name-container {
   margin-bottom: 16px;
 }
 
+/* Show edit hint on hover */
 .task-name-container > p {
   display: none;
 }
@@ -24,18 +31,22 @@
   display: block;
 }
 
+/* Task options buttons */
 .task-options > button {
   margin-right: 16px;
 }
 
+/* Ongoing task style */
 .ongoing {
-  background-color: rgba(255, 255, 0, 0.1);
+  background-color: rgb(255 255 0 / 10%);
 }
 
+/* Done task style */
 .done {
-  background-color: rgba(173, 255, 47, 0.1);
+  background-color: rgb(173 255 47 / 10%);
 }
 
+/* Status tag */
 .status {
   background-color: black;
   display: inline-block;
@@ -43,17 +54,19 @@
   padding: 4px;
 }
 
+/* Ongoing tag style */
 .tag-ongoing {
   background-color: yellow;
   color: black;
-  /* border: 1px solid black; */
 }
 
+/* Done tag style */
 .tag-done {
   background-color: green;
 }
 
-@media screen and (max-width: 640px) {
+/* Media query for smaller screens */
+@media screen and (width <= 640px) {
   .task-name {
     font-size: 16px;
   }

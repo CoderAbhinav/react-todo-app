@@ -1,10 +1,23 @@
+/**
+ * Auto resizing textarea component that adjusts its height based on content.
+ * @file AutoResizeTextArea.js
+ */
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Auto resizing textarea component that adjusts its height based on content.
+ * @param {object} props - Properties passed to the AutoResizeTextArea component.
+ * @returns {JSX.Element} JSX representation of the AutoResizeTextArea component.
+ */
 function AutoResizeTextArea({ id, className, placeholder, currentVal, onChange, ...props }) {
+  // State variable for managing textarea value.
   const [value, setValue] = useState(currentVal);
+
+  // Ref for accessing the textarea DOM element.
   const textAreaRef = useRef(null);
 
+  // Effect hook to adjust textarea height based on content.
   useEffect(() => {
     if (textAreaRef.current) {
       // We need to reset the height momentarily to get the correct scrollHeight for the textarea
@@ -17,6 +30,7 @@ function AutoResizeTextArea({ id, className, placeholder, currentVal, onChange, 
     }
   }, [textAreaRef, value, []]); // Empty dependency array for initial render
 
+  // Event handler for textarea value change.
   const handleChange = (evt) => {
     const val = evt.target?.value;
     onChange(evt);
@@ -36,6 +50,7 @@ function AutoResizeTextArea({ id, className, placeholder, currentVal, onChange, 
   );
 }
 
+// Prop types for AutoResizeTextArea component.
 AutoResizeTextArea.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,

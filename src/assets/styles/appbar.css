@@ -1,17 +1,23 @@
+/**
+ * Styles for the application header.
+ */
+
+/* Header section */
 header {
   margin-top: 16px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-
   flex-direction: row-reverse;
 }
 
+/* User greeting area */
 .user-greeting-area {
   display: flex;
   align-items: baseline;
 }
 
+/* Username textbox */
 #textbox-username {
   margin-left: 4px;
   font-size: 32px;
@@ -19,27 +25,32 @@ header {
   align-self: baseline;
 }
 
+/* Site Logo */
 #site-logo-header {
   height: 48px;
 }
 
+/* Task name input textbox */
 #textbox-add-task {
   font-size: 48px;
   font-weight: 400;
   height: 60px;
 }
 
+/* Add task form */
 #form-add-task {
   display: flex;
   flex-direction: column;
 }
 
+/* Add task button */
 #button-add-task {
   margin-top: 16px;
   font-size: 24px;
 }
 
-@media screen and (max-width: 640px) {
+/* Media query for smaller screens */
+@media screen and (width <= 640px) {
   header {
     display: block;
   }

@@ -1,7 +1,13 @@
+/**
+ * Styles for the task list and its filters.
+ */
+
+/* Active filter style */
 .active-filter {
   background-color: black;
 }
 
+/* Task list filter buttons container */
 #tasklist-filter-buttons {
   margin-bottom: 16px;
   display: flex;
@@ -9,6 +15,7 @@
   gap: 8px;
 }
 
+/* Task list filter button */
 #tasklist-filter-buttons > button {
   margin-right: 8px;
   padding: 0 8px;

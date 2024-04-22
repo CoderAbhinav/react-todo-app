@@ -1,18 +1,30 @@
+/**
+ * Component for displaying the list of tasks with filter options.
+ * @file TaskList.js
+ */
 import React, { useContext, useMemo, useState } from 'react';
 import TaskListContext from '../context/TaskListContext';
 import Task from './Task';
 import '../assets/styles/tasklist.css';
 
+/**
+ * Functional component for displaying the list of tasks with filter options.
+ * @returns {JSX.Element} JSX representation of the TaskList component.
+ */
 function TaskList(props) {
+  // Accessing task list from TaskListContext.
   const { taskList } = useContext(TaskListContext);
 
+  // State variable for managing task list filter.
   const [taskListFilter, setTaskListFilter] = useState('all');
 
+  // Event handler for changing task list filter.
   const handleTaskListFilterChange = (e) => {
     e.preventDefault();
     setTaskListFilter(e.currentTarget.dataset.filtername);
   };
 
+  // Function to determine if a filter button is active.
   const isActiveButton = (currentVal) => {
     if (currentVal === taskListFilter) {
       return 'active-filter';
@@ -21,6 +33,7 @@ function TaskList(props) {
     return '';
   };
 
+  // Memoized object containing count of tasks for each status.
   const getTaskTagCount = useMemo(() => {
     return {
       all: taskList.length,
@@ -36,6 +49,7 @@ function TaskList(props) {
     };
   }, [taskList]);
 
+  // Memoized filtered task list based on the selected filter.
   const getFilteredList = useMemo(() => {
     return taskList.filter((val, idx, arr) => {
       if (taskListFilter === 'all') {
@@ -46,10 +60,12 @@ function TaskList(props) {
     });
   }, [taskListFilter, taskList]);
 
+  // Rendering the TaskList component.
   return (
     <>
       <h1>Your Tasks</h1>
       <h2>Filters</h2>
+      {/* Filter buttons. */}
       <div id="tasklist-filter-buttons">
         <button
           className={isActiveButton('all')}
@@ -80,6 +96,7 @@ function TaskList(props) {
           <p className="status tag-done">#DONE ({getTaskTagCount.done})</p>
         </button>
       </div>
+      {/* Tasklist. */}
       {taskList.length === 0 ? (
         <h2>No tasks found!</h2>
       ) : getFilteredList.length === 0 ? (

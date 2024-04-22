@@ -1,3 +1,8 @@
+/**
+ * Global styles for the application.
+ */
+
+/* Font family and basic styling */
 * {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -13,17 +18,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Code styling */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-input[type='text'] {
-  border: none;
-  outline: none;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
+/* Input and textarea styling */
+input[type='text'],
 textarea {
   border: none;
   outline: none;
@@ -33,27 +34,32 @@ textarea {
   background-color: transparent;
 }
 
+/* Button styling */
 button {
   background-color: transparent;
   border: 2px solid black;
   padding: 16px;
 }
 
+/* Button focus styling */
 button:focus {
   border: 2px solid gray;
   cursor: pointer;
 }
 
+/* Button hover styling */
 button:hover {
   border: 2px solid gray;
   cursor: pointer;
 }
 
+/* Button active styling */
 button:active {
   background-color: black;
   color: white;
 }
 
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -73,7 +79,8 @@ button:active {
   background: #555;
 }
 
-@media screen and (max-width: 640px) {
+/* Media query for smaller screens */
+@media screen and (width <= 640px) {
   body {
     padding-left: 16px;
     padding-right: 16px;
